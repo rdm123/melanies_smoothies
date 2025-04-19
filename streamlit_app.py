@@ -1,4 +1,5 @@
 # Import python packages
+import requests
 import streamlit as st
 #from snowflake.snowpark.context import get_active_session
 
@@ -35,6 +36,8 @@ if ingredients_list:
    ingredients_string=''
    for fruit_chosen in ingredients_list:
        ingredients_string+=fruit_chosen+' '
+       smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+       sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=True)
        
    st.write(ingredients_string)  
    my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
@@ -46,10 +49,10 @@ if ingredients_list:
     session.sql(my_insert_stmt).collect()
     st.success('Your Smoothie is ordered!', icon="✅")
        
-import requests
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+
+
 #st.text(smoothiefroot_response.json())
-sf_df=st.dataframe(data=smoothiefroot_response.json(),use_container_width=True)
+
 #Replace the code in this example app with your own code! And if you're new to Streamlit, here are some helpful links:  • :page_with_curl: [Streamlit open source documentation]({helpful_links[0]})
 #     • :snow: [Streamlit in Snowflake documentation]({helpful_links[1]}) 
 #     • :books: [Demo repo with templates]({helpful_links[2]})
