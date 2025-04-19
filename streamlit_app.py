@@ -48,7 +48,7 @@ if ingredients_list:
        
 import requests
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response) 
+st.text(smoothiefroot_response.json()) 
 #Replace the code in this example app with your own code! And if you're new to Streamlit, here are some helpful links:  • :page_with_curl: [Streamlit open source documentation]({helpful_links[0]})
 #     • :snow: [Streamlit in Snowflake documentation]({helpful_links[1]}) 
 #     • :books: [Demo repo with templates]({helpful_links[2]})
