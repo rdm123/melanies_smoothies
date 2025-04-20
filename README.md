@@ -1,8 +1,8 @@
 This repository is used for Snowflake lab works for Badge3(Data Application Builders Workshop)
 
 Here I have created a streamlit app in snowflake, created databases and tables in snowflake. There are two streamlit apps in the workshop 
-.Customize Smoothie Order
-.Pending Smoothie Order
+(1)Customize Smoothie Order
+ (2)Pending Smoothie Order
 
 Here the script is for customize smoothie order. The app is also hosted in streamlit.io
 
